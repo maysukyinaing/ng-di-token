@@ -24,7 +24,10 @@ export class UserService {
       lastName:'Naing'
     }
   ]
-  constructor(@Inject(GREETER)public greeter:typeof Greeter) {
+  constructor(@Inject(GREETER)public greeter:typeof Greeter) { }
 
+  getUser() {
+    const user = this.users[Math.floor(Math.random() * this.users.length)]
+    return new this.greeter(user)
   }
 }
